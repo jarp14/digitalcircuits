@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="" modelDirectory="/org.chico.digitalcircuits/src"
+    modelPluginID="org.chico.digitalcircuits" modelName="Digital" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false">
+  <foreignModel>digitaldomain.emf</foreignModel>
+  <genPackages prefix="Digital" disposableProviderFactory="true" ecorePackage="digitaldomain.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="digitaldomain.ecore#//Value">
+      <genEnumLiterals ecoreEnumLiteral="digitaldomain.ecore#//Value/ZERO"/>
+      <genEnumLiterals ecoreEnumLiteral="digitaldomain.ecore#//Value/ONE"/>
+    </genEnums>
+    <genClasses ecoreClass="digitaldomain.ecore#//DigitalCircuitsDiagram">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference digitaldomain.ecore#//DigitalCircuitsDiagram/gates"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference digitaldomain.ecore#//DigitalCircuitsDiagram/links"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference digitaldomain.ecore#//DigitalCircuitsDiagram/nodes"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="digitaldomain.ecore#//LinkableObject"/>
+    <genClasses image="false" ecoreClass="digitaldomain.ecore#//Link">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute digitaldomain.ecore#//Link/value"/>
+    </genClasses>
+    <genClasses ecoreClass="digitaldomain.ecore#//Relation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference digitaldomain.ecore#//Relation/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference digitaldomain.ecore#//Relation/target"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="digitaldomain.ecore#//Gate">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute digitaldomain.ecore#//Gate/name"/>
+    </genClasses>
+    <genClasses ecoreClass="digitaldomain.ecore#//And">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute digitaldomain.ecore#//And/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute digitaldomain.ecore#//And/input_x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute digitaldomain.ecore#//And/input_y"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute digitaldomain.ecore#//And/output_z"/>
+    </genClasses>
+    <genClasses ecoreClass="digitaldomain.ecore#//Buffer">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute digitaldomain.ecore#//Buffer/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute digitaldomain.ecore#//Buffer/input"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute digitaldomain.ecore#//Buffer/output"/>
+    </genClasses>
+    <genClasses ecoreClass="digitaldomain.ecore#//Nand">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute digitaldomain.ecore#//Nand/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute digitaldomain.ecore#//Nand/input_x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute digitaldomain.ecore#//Nand/input_y"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute digitaldomain.ecore#//Nand/output_z"/>
+    </genClasses>
+    <genClasses ecoreClass="digitaldomain.ecore#//Nor">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute digitaldomain.ecore#//Nor/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute digitaldomain.ecore#//Nor/input_x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute digitaldomain.ecore#//Nor/input_y"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute digitaldomain.ecore#//Nor/output_z"/>
+    </genClasses>
+    <genClasses ecoreClass="digitaldomain.ecore#//Not">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute digitaldomain.ecore#//Not/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute digitaldomain.ecore#//Not/input"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute digitaldomain.ecore#//Not/output"/>
+    </genClasses>
+    <genClasses ecoreClass="digitaldomain.ecore#//Or">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute digitaldomain.ecore#//Or/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute digitaldomain.ecore#//Or/input_x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute digitaldomain.ecore#//Or/input_y"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute digitaldomain.ecore#//Or/output_z"/>
+      <genOperations ecoreOperation="digitaldomain.ecore#//Or/add"/>
+    </genClasses>
+    <genClasses ecoreClass="digitaldomain.ecore#//Xnor">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute digitaldomain.ecore#//Xnor/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute digitaldomain.ecore#//Xnor/input_x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute digitaldomain.ecore#//Xnor/input_y"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute digitaldomain.ecore#//Xnor/output_z"/>
+    </genClasses>
+    <genClasses ecoreClass="digitaldomain.ecore#//Xor">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute digitaldomain.ecore#//Xor/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute digitaldomain.ecore#//Xor/input_x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute digitaldomain.ecore#//Xor/input_y"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute digitaldomain.ecore#//Xor/output_z"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="digitaldomain.ecore#//StartEnd"/>
+    <genClasses ecoreClass="digitaldomain.ecore#//Start">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute digitaldomain.ecore#//Start/name"/>
+    </genClasses>
+    <genClasses ecoreClass="digitaldomain.ecore#//End">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute digitaldomain.ecore#//End/name"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

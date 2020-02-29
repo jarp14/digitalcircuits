@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="digital" nsURI="digital" nsPrefix="digital">
+  <eAnnotations source="gmf"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DigitalCircuitsDiagram">
+    <eAnnotations source="gmf.diagram"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="gates" upperBound="-1"
+        eType="#//Gate" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="links" upperBound="-1"
+        eType="#//Link" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nodes" upperBound="-1"
+        eType="#//StartEnd" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Value">
+    <eLiterals name="ZERO"/>
+    <eLiterals name="ONE" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LinkableObject" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Link" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="#//Value"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Relation" eSuperTypes="#//Link #//LinkableObject">
+    <eAnnotations source="gmf.link">
+      <details key="label" value="value"/>
+      <details key="source" value="source"/>
+      <details key="target" value="target"/>
+      <details key="style" value="solid"/>
+      <details key="width" value="1"/>
+      <details key="color" value="0,0,0"/>
+      <details key="tool.small.bundle" value="org.chico.digitalcircuits.figures"/>
+      <details key="tool.small.path" value="images/RELATION.gif"/>
+      <details key="source.constraint" value="self &lt;> oppositeEnd"/>
+      <details key="target.constraint" value="self &lt;> oppositeEnd"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" upperBound="-1"
+        eType="#//LinkableObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" upperBound="-1"
+        eType="#//LinkableObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Gate" abstract="true" eSuperTypes="#//LinkableObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="[name]"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="And" eSuperTypes="#//Gate">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name,type"/>
+      <details key="label.pattern" value="{0}::{1}"/>
+      <details key="label.icon" value="false"/>
+      <details key="figure" value="svg"/>
+      <details key="svg.uri" value="platform:/plugin/org.chico.digitalcircuits/icons/AND.svg"/>
+      <details key="tool.small.bundle" value="org.chico.digitalcircuits.figures"/>
+      <details key="tool.small.path" value="images/AND.gif"/>
+      <details key="label.placement" value="external"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" defaultValueLiteral="AND"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="input_x" eType="#//Value"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="input_y" eType="#//Value"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="output_z" eType="#//Value"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Buffer" eSuperTypes="#//Gate">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name,type"/>
+      <details key="label.pattern" value="{0}::{1}"/>
+      <details key="label.icon" value="false"/>
+      <details key="figure" value="svg"/>
+      <details key="svg.uri" value="platform:/plugin/org.chico.digitalcircuits/icons/BUFFER.svg"/>
+      <details key="tool.small.bundle" value="org.chico.digitalcircuits.figures"/>
+      <details key="tool.small.path" value="images/BUFFER.gif"/>
+      <details key="label.placement" value="external"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" defaultValueLiteral="BUFFER"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="input" eType="#//Value"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="output" eType="#//Value"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Nand" eSuperTypes="#//Gate">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name,type"/>
+      <details key="label.pattern" value="{0}::{1}"/>
+      <details key="label.icon" value="false"/>
+      <details key="figure" value="svg"/>
+      <details key="svg.uri" value="platform:/plugin/org.chico.digitalcircuits/icons/NAND.svg"/>
+      <details key="tool.small.bundle" value="org.chico.digitalcircuits.figures"/>
+      <details key="tool.small.path" value="images/NAND.gif"/>
+      <details key="label.placement" value="external"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" defaultValueLiteral="NAND"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="input_x" eType="#//Value"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="input_y" eType="#//Value"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="output_z" eType="#//Value"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Nor" eSuperTypes="#//Gate">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name,type"/>
+      <details key="label.pattern" value="{0}::{1}"/>
+      <details key="label.icon" value="false"/>
+      <details key="figure" value="svg"/>
+      <details key="svg.uri" value="platform:/plugin/org.chico.digitalcircuits/icons/NOR.svg"/>
+      <details key="tool.small.bundle" value="org.chico.digitalcircuits.figures"/>
+      <details key="tool.small.path" value="images/NOR.gif"/>
+      <details key="label.placement" value="external"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" defaultValueLiteral="NOR"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="input_x" eType="#//Value"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="input_y" eType="#//Value"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="output_z" eType="#//Value"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Not" eSuperTypes="#//Gate">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name,type"/>
+      <details key="label.pattern" value="{0}::{1}"/>
+      <details key="label.icon" value="false"/>
+      <details key="figure" value="svg"/>
+      <details key="svg.uri" value="platform:/plugin/org.chico.digitalcircuits/icons/NOT.svg"/>
+      <details key="tool.small.bundle" value="org.chico.digitalcircuits.figures"/>
+      <details key="tool.small.path" value="images/NOT.gif"/>
+      <details key="label.placement" value="external"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" defaultValueLiteral="NOT"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="input" eType="#//Value"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="output" eType="#//Value"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Or" eSuperTypes="#//Gate">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name,type"/>
+      <details key="label.pattern" value="{0}::{1}"/>
+      <details key="label.icon" value="false"/>
+      <details key="figure" value="svg"/>
+      <details key="svg.uri" value="platform:/plugin/org.chico.digitalcircuits/icons/OR.svg"/>
+      <details key="tool.small.bundle" value="org.chico.digitalcircuits.figures"/>
+      <details key="tool.small.path" value="images/OR.gif"/>
+      <details key="label.placement" value="external"/>
+    </eAnnotations>
+    <eOperations name="add" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eParameters name="input_x" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="input_y" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" defaultValueLiteral="OR"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="input_x" eType="#//Value"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="input_y" eType="#//Value"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="output_z" eType="#//Value"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Xnor" eSuperTypes="#//Gate">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name,type"/>
+      <details key="label.pattern" value="{0}::{1}"/>
+      <details key="label.icon" value="false"/>
+      <details key="figure" value="svg"/>
+      <details key="svg.uri" value="platform:/plugin/org.chico.digitalcircuits/icons/XNOR.svg"/>
+      <details key="tool.small.bundle" value="org.chico.digitalcircuits.figures"/>
+      <details key="tool.small.path" value="images/XNOR.gif"/>
+      <details key="label.placement" value="external"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" defaultValueLiteral="XNOR"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="input_x" eType="#//Value"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="input_y" eType="#//Value"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="output_z" eType="#//Value"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Xor" eSuperTypes="#//Gate">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name,type"/>
+      <details key="label.pattern" value="{0}::{1}"/>
+      <details key="label.icon" value="false"/>
+      <details key="figure" value="svg"/>
+      <details key="svg.uri" value="platform:/plugin/org.chico.digitalcircuits/icons/XOR.svg"/>
+      <details key="tool.small.bundle" value="org.chico.digitalcircuits.figures"/>
+      <details key="tool.small.path" value="images/XOR.gif"/>
+      <details key="label.placement" value="external"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" defaultValueLiteral="XOR"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="input_x" eType="#//Value"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="input_y" eType="#//Value"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="output_z" eType="#//Value"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StartEnd" abstract="true" eSuperTypes="#//LinkableObject"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Start" eSuperTypes="#//StartEnd">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="polygon"/>
+      <details key="polygon.x" value="0 200 220 200 0"/>
+      <details key="polygon.y" value="0 0 1 2 2"/>
+      <details key="resizable" value="false"/>
+      <details key="label.icon" value="false"/>
+      <details key="label" value="name"/>
+      <details key="tool.small.bundle" value="org.chico.digitalcircuits.figures"/>
+      <details key="tool.small.path" value="images/INPUT.gif"/>
+      <details key="tool.name" value="Input"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="size" value="60,5"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" defaultValueLiteral="INPUT"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="End" eSuperTypes="#//StartEnd">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="polygon"/>
+      <details key="polygon.x" value="0 20 220 220 20"/>
+      <details key="polygon.y" value="5 0 0 10 10"/>
+      <details key="resizable" value="false"/>
+      <details key="label.icon" value="false"/>
+      <details key="label" value="name"/>
+      <details key="tool.small.bundle" value="org.chico.digitalcircuits.figures"/>
+      <details key="tool.small.path" value="images/OUTPUT.gif"/>
+      <details key="tool.name" value="Output"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="size" value="60,5"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" defaultValueLiteral="OUTPUT"/>
+  </eClassifiers>
+</ecore:EPackage>

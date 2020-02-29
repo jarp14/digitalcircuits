@@ -1,0 +1,711 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<!--
+
+-->
+<plugin>
+
+   <extension point="org.eclipse.team.core.fileTypes" id="repo-ftype">
+      <?gmfgen generated="true"?>
+      <fileTypes type="text" extension="digital_diagram"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser" id="resource-factory">
+      <?gmfgen generated="true"?>
+      <parser
+         type="digital_diagram"
+         class="org.eclipse.gmf.runtime.emf.core.resources.GMFResourceFactory">
+      </parser>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors" id="gmf-editor">
+      <?gmfgen generated="true"?>
+      <editor
+         id="digital.diagram.part.DigitalDiagramEditorID"
+         name="%editorName"
+         icon="icons/obj16/DigitalDiagramFile.gif"
+         extensions="digital_diagram"
+         default="true"
+         class="digital.diagram.part.DigitalDiagramEditor"
+         matchingStrategy="digital.diagram.part.DigitalMatchingStrategy"
+         contributorClass="digital.diagram.part.DigitalDiagramActionBarContributor">
+      </editor>
+   </extension>
+   
+   <extension point="org.eclipse.ui.contexts" id="ui-context">
+      <?gmfgen generated="true"?>
+      <context
+         description="%context.description"
+         id="digital.diagram.ui.diagramContext"
+         name="%context.name"
+         parentId="org.eclipse.gmf.runtime.diagram.ui.diagramContext">
+      </context>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards" id="creation-wizard">
+      <?gmfgen generated="true"?>
+  	  <wizard
+  	     name="%newWizardName"
+  	     icon="icons/obj16/DigitalDiagramFile.gif"
+  	     category="org.eclipse.ui.Examples"
+  	     class="digital.diagram.part.DigitalCreationWizard"
+  	     id="digital.diagram.part.DigitalCreationWizardID">
+  	  	 <description>%newWizardDesc</description>  
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.popupMenus" id="init-diagram-action">
+      <?gmfgen generated="true"?>
+      <objectContribution
+            id="org.chico.digitalcircuits.diagram.InitDiagram"
+            nameFilter="*.digital"
+            objectClass="org.eclipse.core.resources.IFile">
+         <action
+               label="%initDiagramActionLabel"
+               class="digital.diagram.part.DigitalInitDiagramFileAction"
+               menubarPath="additions"
+               enablesFor="1"
+               id="org.chico.digitalcircuits.diagram.InitDiagramAction">
+         </action>
+      </objectContribution>
+   </extension>
+	
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.action.globalActionHandlerProviders" id="global-actions">
+      <?gmfgen generated="true"?>
+      <GlobalActionHandlerProvider
+         class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramGlobalActionHandlerProvider"
+         id="DigitalPresentation">
+         <Priority name="Lowest"/>
+         <ViewId id="digital.diagram.part.DigitalDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="delete"/>
+            </ElementType>
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart">
+               <GlobalActionId actionId="save"/>
+            </ElementType>
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="save">
+               </GlobalActionId>
+            </ElementType>        
+         </ViewId>
+      </GlobalActionHandlerProvider>
+      <GlobalActionHandlerProvider
+         class="org.eclipse.gmf.runtime.diagram.ui.printing.render.providers.DiagramWithPrintGlobalActionHandlerProvider"
+         id="DigitalPresentationPrint">
+         <Priority name="Lowest"/>
+         <ViewId id="digital.diagram.part.DigitalDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="print"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+      <GlobalActionHandlerProvider
+         class="org.eclipse.gmf.runtime.diagram.ui.providers.ide.providers.DiagramIDEGlobalActionHandlerProvider"
+         id="DigitalPresentationIDE">
+         <Priority name="Lowest"/>
+         <ViewId id="digital.diagram.part.DigitalDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="bookmark"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+      <GlobalActionHandlerProvider
+            class="org.eclipse.gmf.runtime.diagram.ui.render.providers.DiagramUIRenderGlobalActionHandlerProvider"
+            id="DigitalRender">
+         <Priority name="Lowest"/>
+         <ViewId id="digital.diagram.part.DigitalDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="cut"/>
+               <GlobalActionId actionId="copy"/>
+               <GlobalActionId actionId="paste"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+   </extension>
+
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.markerNavigationProviders" id="markers-navigation">
+      <?gmfgen generated="true"?>
+      <MarkerNavigationProvider class="digital.diagram.providers.DigitalMarkerNavigationProvider">
+         <MarkerType name="org.chico.digitalcircuits.diagram.diagnostic"/>
+         <Priority name="Lowest"/>
+      </MarkerNavigationProvider>
+   </extension>
+
+   <extension id="diagnostic" name="Digital Plugin problems" point="org.eclipse.core.resources.markers">
+      <?gmfgen generated="true"?>
+      <super type="org.eclipse.core.resources.problemmarker"/>
+      <super type="org.eclipse.gmf.runtime.common.ui.services.marker"/>
+      <persistent value="true"/>
+   </extension>   
+
+   <extension id="validationDecoratorProvider" name="ValidationDecorations" point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders">
+      <?gmfgen generated="true"?>
+      <decoratorProvider class="digital.diagram.providers.DigitalValidationDecoratorProvider">
+         <Priority name="Lowest"/>
+         <object class="org.eclipse.gmf.runtime.diagram.ui.editparts.IPrimaryEditPart(org.eclipse.gmf.runtime.diagram.ui)" id="PRIMARY_VIEW"/>
+         <context decoratorTargets="PRIMARY_VIEW"/>
+      </decoratorProvider>
+   </extension>
+
+   <extension point="org.eclipse.core.runtime.preferences" id="prefs">
+      <?gmfgen generated="true"?>
+      <initializer class="digital.diagram.preferences.DiagramPreferenceInitializer"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.preferencePages" id="prefpages">
+      <?gmfgen generated="true"?>
+      <page
+            id="org.chico.digitalcircuits.diagram.general"
+            name="%prefpage.org.chico.digitalcircuits.diagram.general"
+            class="digital.diagram.preferences.DiagramGeneralPreferencePage">
+      </page>
+      <page
+            id="org.chico.digitalcircuits.diagram.appearance"
+            name="%prefpage.org.chico.digitalcircuits.diagram.appearance"
+            category="org.chico.digitalcircuits.diagram.general"
+            class="digital.diagram.preferences.DiagramAppearancePreferencePage">
+      </page>
+      <page
+            id="org.chico.digitalcircuits.diagram.connections"
+            name="%prefpage.org.chico.digitalcircuits.diagram.connections"
+            category="org.chico.digitalcircuits.diagram.general"
+            class="digital.diagram.preferences.DiagramConnectionsPreferencePage">
+      </page>
+      <page
+            id="org.chico.digitalcircuits.diagram.printing"
+            name="%prefpage.org.chico.digitalcircuits.diagram.printing"
+            category="org.chico.digitalcircuits.diagram.general"
+            class="digital.diagram.preferences.DiagramPrintingPreferencePage">
+      </page>
+      <page
+            id="org.chico.digitalcircuits.diagram.rulersAndGrid"
+            name="%prefpage.org.chico.digitalcircuits.diagram.rulersAndGrid"
+            category="org.chico.digitalcircuits.diagram.general"
+            class="digital.diagram.preferences.DiagramRulersAndGridPreferencePage">
+      </page>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyContributor" id="prop-contrib">
+      <?gmfgen generated="true"?>
+      <propertyContributor
+            contributorId="org.chico.digitalcircuits.diagram"
+            labelProvider="digital.diagram.sheet.DigitalSheetLabelProvider">
+         <propertyCategory category="domain"/>
+         <propertyCategory category="visual"/>
+         <propertyCategory category="extra"/>
+      </propertyContributor>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs" id="proptabs">
+      <?gmfgen generated="true"?>   
+      <propertyTabs contributorId="org.chico.digitalcircuits.diagram">
+         <propertyTab
+             category="visual"
+             id="property.tab.AppearancePropertySection"
+             label="%tab.appearance"/>
+          <propertyTab
+             category="visual"
+             id="property.tab.DiagramPropertySection"
+             label="%tab.diagram"/>
+          <propertyTab
+             category="domain"
+             id="property.tab.domain"
+             label="%tab.domain"/>
+      </propertyTabs>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections" id="propsections">
+      <?gmfgen generated="true"?>   
+      <propertySections contributorId="org.chico.digitalcircuits.diagram">
+         <propertySection id="property.section.ConnectorAppearancePropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.ConnectionEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.ConnectionAppearancePropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection>
+         <propertySection id="property.section.ShapeColorAndFontPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.ShapeEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.ShapeColorsAndFontsPropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection> 
+         <propertySection id="property.section.DiagramColorsAndFontsPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.DiagramEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.DiagramColorsAndFontsPropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection>     
+         <propertySection id="property.section.RulerGridPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.DiagramEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.grid.RulerGridPropertySection" 
+            tab="property.tab.DiagramPropertySection">
+         </propertySection>     
+         <propertySection
+            id="property.section.domain" 
+            tab="property.tab.domain"
+            class="digital.diagram.sheet.DigitalPropertySection">
+            <input type="org.eclipse.gmf.runtime.notation.View"/>
+            <input type="org.eclipse.gef.EditPart"/>
+            <input type="digital.diagram.navigator.DigitalAbstractNavigatorItem"/>
+         </propertySection>
+      </propertySections>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.diagram.core.viewProviders" id="view-provider">
+      <?gmfgen generated="true"?>
+      <viewProvider class="digital.diagram.providers.DigitalViewProvider">
+         <Priority name="Lowest"/>
+         <object id="referencing-diagrams" class="org.eclipse.gmf.runtime.notation.Diagram">
+            <method name="getType()" value="digital"/>
+         </object>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Digital"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,2002,2003,2004,2005,2006,2007,2008,2009,2010"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4001"/>
+      </viewProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders" id="ep-provider">
+      <?gmfgen generated="true"?>
+      <editpartProvider class="digital.diagram.providers.DigitalEditPartProvider">
+         <Priority name="Lowest"/>
+         <object class="org.eclipse.gmf.runtime.notation.Diagram" id="generated-diagram">
+            <method name="getType()" value="Digital"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
+            <method name="getType()" value="2001,2002,2003,2004,2005,2006,2007,2008,2009,2010"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
+            <method name="getType()" value="4001"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
+            <method name="getType()" value="5001,5002,5003,5004,5005,5006,5007,5008,5009,5010"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
+            <method name="getType()" value=""/>
+         </object>
+         <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
+      </editpartProvider>
+   </extension>
+
+   
+   <extension point="org.eclipse.gmf.runtime.emf.ui.modelingAssistantProviders" id="modelassist-provider">
+      <?gmfgen generated="true"?>
+      <modelingAssistantProvider class="digital.diagram.providers.assistants.DigitalModelingAssistantProviderOfDigitalCircuitsDiagramEditPart">
+         <Priority name="Lowest"/>
+         <object class="digital.diagram.edit.parts.DigitalCircuitsDiagramEditPart" id="DigitalCircuitsDiagram_1000"/>
+         <context elements="DigitalCircuitsDiagram_1000"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="digital.diagram.providers.assistants.DigitalModelingAssistantProviderOfAndEditPart">
+         <Priority name="Lowest"/>
+         <object class="digital.diagram.edit.parts.AndEditPart" id="And_2001"/>
+         <context elements="And_2001"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="digital.diagram.providers.assistants.DigitalModelingAssistantProviderOfBufferEditPart">
+         <Priority name="Lowest"/>
+         <object class="digital.diagram.edit.parts.BufferEditPart" id="Buffer_2002"/>
+         <context elements="Buffer_2002"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="digital.diagram.providers.assistants.DigitalModelingAssistantProviderOfNandEditPart">
+         <Priority name="Lowest"/>
+         <object class="digital.diagram.edit.parts.NandEditPart" id="Nand_2003"/>
+         <context elements="Nand_2003"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="digital.diagram.providers.assistants.DigitalModelingAssistantProviderOfNorEditPart">
+         <Priority name="Lowest"/>
+         <object class="digital.diagram.edit.parts.NorEditPart" id="Nor_2004"/>
+         <context elements="Nor_2004"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="digital.diagram.providers.assistants.DigitalModelingAssistantProviderOfNotEditPart">
+         <Priority name="Lowest"/>
+         <object class="digital.diagram.edit.parts.NotEditPart" id="Not_2005"/>
+         <context elements="Not_2005"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="digital.diagram.providers.assistants.DigitalModelingAssistantProviderOfOrEditPart">
+         <Priority name="Lowest"/>
+         <object class="digital.diagram.edit.parts.OrEditPart" id="Or_2006"/>
+         <context elements="Or_2006"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="digital.diagram.providers.assistants.DigitalModelingAssistantProviderOfXnorEditPart">
+         <Priority name="Lowest"/>
+         <object class="digital.diagram.edit.parts.XnorEditPart" id="Xnor_2007"/>
+         <context elements="Xnor_2007"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="digital.diagram.providers.assistants.DigitalModelingAssistantProviderOfXorEditPart">
+         <Priority name="Lowest"/>
+         <object class="digital.diagram.edit.parts.XorEditPart" id="Xor_2008"/>
+         <context elements="Xor_2008"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="digital.diagram.providers.assistants.DigitalModelingAssistantProviderOfStartEditPart">
+         <Priority name="Lowest"/>
+         <object class="digital.diagram.edit.parts.StartEditPart" id="Start_2009"/>
+         <context elements="Start_2009"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="digital.diagram.providers.assistants.DigitalModelingAssistantProviderOfEndEditPart">
+         <Priority name="Lowest"/>
+         <object class="digital.diagram.edit.parts.EndEditPart" id="End_2010"/>
+         <context elements="End_2010"/>
+      </modelingAssistantProvider>
+      
+   </extension>
+
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.iconProviders" id="icon-provider">
+      <?gmfgen generated="true"?>
+      <IconProvider class="digital.diagram.providers.DigitalIconProvider">
+         <Priority name="Low"/>
+      </IconProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.parserProviders" id="parser-provider">
+      <?gmfgen generated="true"?>
+      <ParserProvider class="digital.diagram.providers.DigitalParserProvider">
+         <Priority name="Lowest"/>
+      </ParserProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders" id="decorator-provider">
+      <?gmfgen generated="true"?>
+      <decoratorProvider class="digital.diagram.providers.DigitalShortcutsDecoratorProvider">
+         <Priority name="Lowest"/>
+         <object class="org.eclipse.gmf.runtime.notation.Node(org.eclipse.gmf.runtime.notation)" id="generated-top-nodes">
+            <method name="getType()" value="2001,2002,2003,2004,2005,2006,2007,2008,2009,2010"/>
+         </object>
+         <context decoratorTargets="generated-top-nodes"/>
+      </decoratorProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypes" id="element-types">
+      <?gmfgen generated="true"?>
+      <metamodel nsURI="digital">
+         <metamodelType
+               id="org.chico.digitalcircuits.diagram.DigitalCircuitsDiagram_1000"
+               name="%metatype.name.DigitalCircuitsDiagram_1000"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="DigitalCircuitsDiagram"
+               edithelper="digital.diagram.edit.helpers.DigitalCircuitsDiagramEditHelper">
+            <param name="semanticHint" value="1000"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="digital">
+         <metamodelType
+               id="org.chico.digitalcircuits.diagram.And_2001"
+               name="%metatype.name.And_2001"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="And"
+               edithelper="digital.diagram.edit.helpers.AndEditHelper">
+            <param name="semanticHint" value="2001"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="digital">
+         <metamodelType
+               id="org.chico.digitalcircuits.diagram.Buffer_2002"
+               name="%metatype.name.Buffer_2002"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Buffer"
+               edithelper="digital.diagram.edit.helpers.BufferEditHelper">
+            <param name="semanticHint" value="2002"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="digital">
+         <metamodelType
+               id="org.chico.digitalcircuits.diagram.Nand_2003"
+               name="%metatype.name.Nand_2003"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Nand"
+               edithelper="digital.diagram.edit.helpers.NandEditHelper">
+            <param name="semanticHint" value="2003"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="digital">
+         <metamodelType
+               id="org.chico.digitalcircuits.diagram.Nor_2004"
+               name="%metatype.name.Nor_2004"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Nor"
+               edithelper="digital.diagram.edit.helpers.NorEditHelper">
+            <param name="semanticHint" value="2004"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="digital">
+         <metamodelType
+               id="org.chico.digitalcircuits.diagram.Not_2005"
+               name="%metatype.name.Not_2005"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Not"
+               edithelper="digital.diagram.edit.helpers.NotEditHelper">
+            <param name="semanticHint" value="2005"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="digital">
+         <metamodelType
+               id="org.chico.digitalcircuits.diagram.Or_2006"
+               name="%metatype.name.Or_2006"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Or"
+               edithelper="digital.diagram.edit.helpers.OrEditHelper">
+            <param name="semanticHint" value="2006"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="digital">
+         <metamodelType
+               id="org.chico.digitalcircuits.diagram.Xnor_2007"
+               name="%metatype.name.Xnor_2007"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Xnor"
+               edithelper="digital.diagram.edit.helpers.XnorEditHelper">
+            <param name="semanticHint" value="2007"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="digital">
+         <metamodelType
+               id="org.chico.digitalcircuits.diagram.Xor_2008"
+               name="%metatype.name.Xor_2008"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Xor"
+               edithelper="digital.diagram.edit.helpers.XorEditHelper">
+            <param name="semanticHint" value="2008"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="digital">
+         <metamodelType
+               id="org.chico.digitalcircuits.diagram.Start_2009"
+               name="%metatype.name.Start_2009"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Start"
+               edithelper="digital.diagram.edit.helpers.StartEditHelper">
+            <param name="semanticHint" value="2009"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="digital">
+         <metamodelType
+               id="org.chico.digitalcircuits.diagram.End_2010"
+               name="%metatype.name.End_2010"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="End"
+               edithelper="digital.diagram.edit.helpers.EndEditHelper">
+            <param name="semanticHint" value="2010"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="digital">
+         <metamodelType
+               id="org.chico.digitalcircuits.diagram.Relation_4001"
+               name="%metatype.name.Relation_4001"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Relation"
+               edithelper="digital.diagram.edit.helpers.RelationEditHelper">
+            <param name="semanticHint" value="4001"/>
+         </metamodelType>
+      </metamodel>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings" id="element-types-bindings">
+      <?gmfgen generated="true"?>
+      <clientContext id="org.chico.digitalcircuits.diagram.TypeContext">
+         <enablement>
+            <test
+               property="org.eclipse.gmf.runtime.emf.core.editingDomain"
+               value="org.chico.digitalcircuits.diagram.EditingDomain"/>
+         </enablement>
+      </clientContext> 
+      <binding context="org.chico.digitalcircuits.diagram.TypeContext">
+         <elementType ref="org.chico.digitalcircuits.diagram.DigitalCircuitsDiagram_1000"/>
+         <elementType ref="org.chico.digitalcircuits.diagram.And_2001"/>
+         <elementType ref="org.chico.digitalcircuits.diagram.Buffer_2002"/>
+         <elementType ref="org.chico.digitalcircuits.diagram.Nand_2003"/>
+         <elementType ref="org.chico.digitalcircuits.diagram.Nor_2004"/>
+         <elementType ref="org.chico.digitalcircuits.diagram.Not_2005"/>
+         <elementType ref="org.chico.digitalcircuits.diagram.Or_2006"/>
+         <elementType ref="org.chico.digitalcircuits.diagram.Xnor_2007"/>
+         <elementType ref="org.chico.digitalcircuits.diagram.Xor_2008"/>
+         <elementType ref="org.chico.digitalcircuits.diagram.Start_2009"/>
+         <elementType ref="org.chico.digitalcircuits.diagram.End_2010"/>
+         <elementType ref="org.chico.digitalcircuits.diagram.Relation_4001"/>
+         <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
+      </binding>
+   </extension>
+	   <extension point="org.eclipse.core.expressions.propertyTesters" id="navigator-proptest.isURIEditorInput">
+      <?gmfgen generated="true"?>
+       <propertyTester
+           id="org.chico.digitalcircuits.diagram.URIEditorInputPropertyTester"
+           type="org.eclipse.emf.common.ui.URIEditorInput"
+           namespace="org.chico.digitalcircuits.diagram"
+           properties="isURIEditorInput"
+           class="digital.diagram.part.DigitalUriEditorInputTester">
+       </propertyTester>
+   </extension>
+
+	   <extension point="org.eclipse.core.expressions.propertyTesters" id="navigator-proptest.isShortcut">
+      <?gmfgen generated="true"?>
+       <propertyTester
+           id="org.chico.digitalcircuits.diagram.ShortcutPropertyTester"
+           type="org.eclipse.gmf.runtime.notation.View"
+           namespace="org.chico.digitalcircuits.diagram"
+           properties="isShortcut"
+           class="digital.diagram.part.DigitalShortcutPropertyTester">
+       </propertyTester>
+   </extension>
+
+	   <extension point="org.eclipse.ui.navigator.viewer" id="navigator-viewbinding">
+      <?gmfgen generated="true"?>
+      <viewerContentBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+         <includes>
+            <contentExtension pattern="org.chico.digitalcircuits.diagram.resourceContent"/>
+			<contentExtension pattern="org.chico.digitalcircuits.diagram.domainResourceContent"/>
+            <contentExtension pattern="org.chico.digitalcircuits.diagram.navigatorLinkHelper"/>
+         </includes>
+      </viewerContentBinding>
+      <viewerActionBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+         <includes>
+            <actionExtension pattern="org.chico.digitalcircuits.diagram.navigatorActionProvider"/>
+         </includes>
+      </viewerActionBinding>
+   </extension>
+
+   <extension point="org.eclipse.ui.navigator.navigatorContent" id="navigator-content">
+      <?gmfgen generated="true"?>
+      <navigatorContent
+            id="org.chico.digitalcircuits.diagram.resourceContent" 
+            name="%navigatorContentName" 
+            priority="normal" 
+            contentProvider="digital.diagram.navigator.DigitalNavigatorContentProvider" 
+            labelProvider="digital.diagram.navigator.DigitalNavigatorLabelProvider"
+            icon="icons/obj16/DigitalDiagramFile.gif"
+            activeByDefault="true">
+         <triggerPoints>
+            <or>
+	           <and>
+    	          <instanceof value="org.eclipse.core.resources.IFile"/>
+        	      <test property="org.eclipse.core.resources.extension" value="digital_diagram"/>
+               </and>
+               <instanceof value="digital.diagram.navigator.DigitalAbstractNavigatorItem"/>
+           	   <adapt type="org.eclipse.gmf.runtime.notation.View">
+           	      <test property="org.chico.digitalcircuits.diagram.isShortcut"/>
+           	   </adapt>
+            </or>
+         </triggerPoints>
+         <possibleChildren>
+            <or>
+         	   <instanceof value="digital.diagram.navigator.DigitalAbstractNavigatorItem"/>
+           	   <adapt type="org.eclipse.gmf.runtime.notation.View">
+           	      <test property="org.chico.digitalcircuits.diagram.isShortcut"/>
+           	   </adapt>
+            </or>
+         </possibleChildren>
+         <commonSorter 
+               id="org.chico.digitalcircuits.diagram.navigatorSorter" 
+               class="digital.diagram.navigator.DigitalNavigatorSorter">
+            <parentExpression>
+               <or>
+	              <and>
+    	             <instanceof value="org.eclipse.core.resources.IFile"/>
+        	         <test property="org.eclipse.core.resources.extension" value="digital_diagram"/>
+                  </and>
+                  <instanceof value="digital.diagram.navigator.DigitalAbstractNavigatorItem"/>
+               </or>
+            </parentExpression>
+         </commonSorter>
+      </navigatorContent>
+      <navigatorContent
+            id="org.chico.digitalcircuits.diagram.domainResourceContent" 
+            name="%domainNavigatorContentName" 
+            priority="normal" 
+            contentProvider="digital.diagram.navigator.DigitalDomainNavigatorContentProvider" 
+            labelProvider="digital.diagram.navigator.DigitalDomainNavigatorLabelProvider"
+            icon="icons/obj16/DigitalDiagramFile.gif"
+            activeByDefault="true">
+         <triggerPoints>
+            <or>
+	           <and>
+    	          <instanceof value="org.eclipse.core.resources.IFile"/>
+        	      <test property="org.eclipse.core.resources.extension" value="digital"/>
+               </and>
+               <instanceof value="digital.diagram.navigator.DigitalDomainNavigatorItem"/>
+            </or>
+         </triggerPoints>
+         <possibleChildren>
+            <instanceof value="digital.diagram.navigator.DigitalDomainNavigatorItem"/>
+         </possibleChildren>
+      </navigatorContent>
+      <actionProvider
+            id="org.chico.digitalcircuits.diagram.navigatorActionProvider"
+            class="digital.diagram.navigator.DigitalNavigatorActionProvider">
+         <enablement>
+            <or>
+               <instanceof value="digital.diagram.navigator.DigitalAbstractNavigatorItem"/>
+           	   <adapt type="org.eclipse.gmf.runtime.notation.View">
+           	      <test property="org.chico.digitalcircuits.diagram.isShortcut"/>
+           	   </adapt>
+            </or>
+         </enablement>
+      </actionProvider>
+   </extension>
+   
+	   <extension point="org.eclipse.ui.navigator.linkHelper" id="navigator-linkhelper">
+      <?gmfgen generated="true"?>
+      <linkHelper
+            id="org.chico.digitalcircuits.diagram.navigatorLinkHelper"
+            class="digital.diagram.navigator.DigitalNavigatorLinkHelper">
+         <editorInputEnablement>
+            <and>
+               <instanceof value="org.eclipse.emf.common.ui.URIEditorInput"/>
+               <test property="org.chico.digitalcircuits.diagram.isURIEditorInput"/>
+            </and>
+         </editorInputEnablement>
+         <selectionEnablement>
+            <instanceof value="digital.diagram.navigator.DigitalAbstractNavigatorItem"/>
+         </selectionEnablement>
+      </linkHelper>
+   </extension>
+   <extension point="org.eclipse.ui.commands" id="update-cmd">
+      <?gmfgen generated="true"?>
+      <command
+         categoryId="org.eclipse.ui.category.edit"
+         defaultHandler="digital.diagram.part.DigitalDiagramUpdateCommand"
+         description="%update.diagram.description"
+         id="digital.diagram.updateDiagram"
+         name="%update.diagram.name"/>
+   </extension>
+   
+   <extension point="org.eclipse.ui.bindings" id="update-cmd-binding">
+      <?gmfgen generated="true"?>
+      <key 
+         commandId="digital.diagram.updateDiagram"
+         contextId="digital.diagram.ui.diagramContext"
+         schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+         sequence="F5"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.menus" id="context-menus">
+      <?gmfgen generated="true"?>
+      <!-- menuContribution locationURI="menu:org.eclipse.ui.main.menu?after=">
+      </menuContribution>
+      <menuContribution locationURI="toolbar:org.eclipse.ui.main.toolbar?after=">
+      </menuContribution -->
+      <menuContribution locationURI="popup:org.eclipse.gmf.runtime.diagram.ui.DiagramEditorContextMenu">
+         <command commandId="org.chico.digitalcircuits.diagram.LoadResourceAction">
+            <visibleWhen>
+               <and>
+                  <with variable="activePartId"><equals value="digital.diagram.part.DigitalDiagramEditorID"/></with>
+                  <with variable="selection"><iterate ifEmpty="false"> 
+                     <instanceof value="digital.diagram.edit.parts.DigitalCircuitsDiagramEditPart"/>
+                  </iterate></with>
+               </and>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+
+   <extension point="org.eclipse.ui.commands" id="menu-commands">
+      <?gmfgen generated="true"?>
+      <category id="digital.diagram.part.DigitalDiagramEditorID" name="%cmdcategory.name" description="%cmdcategory.desc"/>
+      <command id="org.chico.digitalcircuits.diagram.LoadResourceAction"
+         name="Load Resource"
+         categoryId="digital.diagram.part.DigitalDiagramEditorID"
+         defaultHandler="digital.diagram.part.LoadResourceAction"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.handlers" id="menu-handlers">
+      <?gmfgen generated="true"?>
+   </extension>
+
+   <!-- optionally, specify keybindings -->
+</plugin>

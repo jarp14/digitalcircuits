@@ -1,0 +1,7 @@
+diff --git org.chico.digitalcircuits.diagram/src/digital/diagram/edit/parts/BufferEditPart.java org.chico.digitalcircuits.diagram/src/digital/diagram/edit/parts/BufferEditPart.java
+index 1e66957..b241750 100644
+--- org.chico.digitalcircuits.diagram/src/digital/diagram/edit/parts/BufferEditPart.java
++++ org.chico.digitalcircuits.diagram/src/digital/diagram/edit/parts/BufferEditPart.java
+@@ -132,1 +132,1 @@
+-			locator.setBorderItemOffset(new Dimension(-20, -20));
++			locator.setBorderItemOffset(new Dimension(-12, -12));

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="ASCII"?>
+<gmftool:ToolRegistry
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:gmftool="http://www.eclipse.org/gmf/2005/ToolDefinition">
+  <palette
+      title="digitalPalette">
+    <tools
+        xsi:type="gmftool:ToolGroup"
+        title="Logic Gates"
+        collapsible="true">
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="And"
+          description="Create new And">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="images/AND.gif"
+            bundle="org.chico.digitalcircuits.figures"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Buffer"
+          description="Create new Buffer">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="images/BUFFER.gif"
+            bundle="org.chico.digitalcircuits.figures"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Nand"
+          description="Create new Nand">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="images/NAND.gif"
+            bundle="org.chico.digitalcircuits.figures"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Nor"
+          description="Create new Nor">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="images/NOR.gif"
+            bundle="org.chico.digitalcircuits.figures"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Not"
+          description="Create new Not">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="images/NOT.gif"
+            bundle="org.chico.digitalcircuits.figures"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Or"
+          description="Create new Or">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="images/OR.gif"
+            bundle="org.chico.digitalcircuits.figures"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Xnor"
+          description="Create new Xnor">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="images/XNOR.gif"
+            bundle="org.chico.digitalcircuits.figures"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Xor"
+          description="Create new Xor">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="images/XOR.gif"
+            bundle="org.chico.digitalcircuits.figures"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+    </tools>
+    <tools
+        xsi:type="gmftool:ToolGroup"
+        title="Connections"
+        collapsible="true">
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Input"
+          description="Create new Input">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="images/INPUT.gif"
+            bundle="org.chico.digitalcircuits.figures"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Output"
+          description="Create new Output">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="images/OUTPUT.gif"
+            bundle="org.chico.digitalcircuits.figures"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Relation"
+          description="Create new Relation">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="images/RELATION.gif"
+            bundle="org.chico.digitalcircuits.figures"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+    </tools>
+  </palette>
+</gmftool:ToolRegistry>

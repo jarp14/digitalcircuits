@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Figures
+Bundle-SymbolicName: org.chico.digitalcircuits.figures
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: activator,
+ org.eclipse.draw2d
+Require-Bundle: org.eclipse.swt;bundle-version="3.105.3",
+ org.eclipse.ui;bundle-version="3.108.1",
+ org.eclipse.osgi,
+ org.eclipse.core.runtime;bundle-version="3.12.0"
+Export-Package: digitalfigures

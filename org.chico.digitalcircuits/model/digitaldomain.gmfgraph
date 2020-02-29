@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="ASCII"?>
+<gmfgraph:Canvas xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gmfgraph="http://www.eclipse.org/gmf/2006/GraphicalDefinition" name="digital">
+  <figures name="Default">
+    <descriptors name="AndFigure">
+      <actualFigure xsi:type="gmfgraph:SVGFigure" name="AndFigure" documentURI="platform:/plugin/org.chico.digitalcircuits/icons/AND.svg">
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+      </actualFigure>
+    </descriptors>
+    <descriptors name="AndLabelFigure">
+      <actualFigure xsi:type="gmfgraph:Label" name="AndLabelFigure" text="And"/>
+    </descriptors>
+    <descriptors name="BufferFigure">
+      <actualFigure xsi:type="gmfgraph:SVGFigure" name="BufferFigure" documentURI="platform:/plugin/org.chico.digitalcircuits/icons/BUFFER.svg">
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+      </actualFigure>
+    </descriptors>
+    <descriptors name="BufferLabelFigure">
+      <actualFigure xsi:type="gmfgraph:Label" name="BufferLabelFigure" text="Buffer"/>
+    </descriptors>
+    <descriptors name="NandFigure">
+      <actualFigure xsi:type="gmfgraph:SVGFigure" name="NandFigure" documentURI="platform:/plugin/org.chico.digitalcircuits/icons/NAND.svg">
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+      </actualFigure>
+    </descriptors>
+    <descriptors name="NandLabelFigure">
+      <actualFigure xsi:type="gmfgraph:Label" name="NandLabelFigure" text="Nand"/>
+    </descriptors>
+    <descriptors name="NorFigure">
+      <actualFigure xsi:type="gmfgraph:SVGFigure" name="NorFigure" documentURI="platform:/plugin/org.chico.digitalcircuits/icons/NOR.svg">
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+      </actualFigure>
+    </descriptors>
+    <descriptors name="NorLabelFigure">
+      <actualFigure xsi:type="gmfgraph:Label" name="NorLabelFigure" text="Nor"/>
+    </descriptors>
+    <descriptors name="NotFigure">
+      <actualFigure xsi:type="gmfgraph:SVGFigure" name="NotFigure" documentURI="platform:/plugin/org.chico.digitalcircuits/icons/NOT.svg">
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+      </actualFigure>
+    </descriptors>
+    <descriptors name="NotLabelFigure">
+      <actualFigure xsi:type="gmfgraph:Label" name="NotLabelFigure" text="Not"/>
+    </descriptors>
+    <descriptors name="OrFigure">
+      <actualFigure xsi:type="gmfgraph:SVGFigure" name="OrFigure" documentURI="platform:/plugin/org.chico.digitalcircuits/icons/OR.svg">
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+      </actualFigure>
+    </descriptors>
+    <descriptors name="OrLabelFigure">
+      <actualFigure xsi:type="gmfgraph:Label" name="OrLabelFigure" text="Or"/>
+    </descriptors>
+    <descriptors name="XnorFigure">
+      <actualFigure xsi:type="gmfgraph:SVGFigure" name="XnorFigure" documentURI="platform:/plugin/org.chico.digitalcircuits/icons/XNOR.svg">
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+      </actualFigure>
+    </descriptors>
+    <descriptors name="XnorLabelFigure">
+      <actualFigure xsi:type="gmfgraph:Label" name="XnorLabelFigure" text="Xnor"/>
+    </descriptors>
+    <descriptors name="XorFigure">
+      <actualFigure xsi:type="gmfgraph:SVGFigure" name="XorFigure" documentURI="platform:/plugin/org.chico.digitalcircuits/icons/XOR.svg">
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+      </actualFigure>
+    </descriptors>
+    <descriptors name="XorLabelFigure">
+      <actualFigure xsi:type="gmfgraph:Label" name="XorLabelFigure" text="Xor"/>
+    </descriptors>
+    <descriptors name="StartFigure">
+      <actualFigure xsi:type="gmfgraph:ScalablePolygon" name="StartFigure">
+        <foregroundColor xsi:type="gmfgraph:RGBColor"/>
+        <preferredSize dx="60" dy="5"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="StartLabelFigure" text="Start"/>
+        <template/>
+        <template x="200"/>
+        <template x="220" y="1"/>
+        <template x="200" y="2"/>
+        <template y="2"/>
+      </actualFigure>
+      <accessors accessor="getFigureStartLabelFigure" figure="//@figures.0/@descriptors.16/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="EndFigure">
+      <actualFigure xsi:type="gmfgraph:ScalablePolygon" name="EndFigure">
+        <foregroundColor xsi:type="gmfgraph:RGBColor"/>
+        <preferredSize dx="60" dy="5"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="EndLabelFigure" text="End"/>
+        <template y="5"/>
+        <template x="20"/>
+        <template x="220"/>
+        <template x="220" y="10"/>
+        <template x="20" y="10"/>
+      </actualFigure>
+      <accessors accessor="getFigureEndLabelFigure" figure="//@figures.0/@descriptors.17/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="RelationFigure">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="RelationFigure">
+        <foregroundColor xsi:type="gmfgraph:RGBColor"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors name="RelationLabelFigure">
+      <actualFigure xsi:type="gmfgraph:Label" name="RelationLabelLabel" text="Relation"/>
+    </descriptors>
+  </figures>
+  <nodes name="And" figure="AndFigure"/>
+  <nodes name="Buffer" figure="BufferFigure"/>
+  <nodes name="Nand" figure="NandFigure"/>
+  <nodes name="Nor" figure="NorFigure"/>
+  <nodes name="Not" figure="NotFigure"/>
+  <nodes name="Or" figure="OrFigure"/>
+  <nodes name="Xnor" figure="XnorFigure"/>
+  <nodes name="Xor" figure="XorFigure"/>
+  <nodes name="Start" figure="StartFigure">
+    <facets xsi:type="gmfgraph:DefaultSizeFacet">
+      <defaultSize dx="60" dy="5"/>
+    </facets>
+  </nodes>
+  <nodes name="End" figure="EndFigure">
+    <facets xsi:type="gmfgraph:DefaultSizeFacet">
+      <defaultSize dx="60" dy="5"/>
+    </facets>
+  </nodes>
+  <connections name="Relation" figure="RelationFigure"/>
+  <labels name="AndLabel" figure="AndLabelFigure" elementIcon="false"/>
+  <labels name="BufferLabel" figure="BufferLabelFigure" elementIcon="false"/>
+  <labels name="NandLabel" figure="NandLabelFigure" elementIcon="false"/>
+  <labels name="NorLabel" figure="NorLabelFigure" elementIcon="false"/>
+  <labels name="NotLabel" figure="NotLabelFigure" elementIcon="false"/>
+  <labels name="OrLabel" figure="OrLabelFigure" elementIcon="false"/>
+  <labels name="XnorLabel" figure="XnorLabelFigure" elementIcon="false"/>
+  <labels name="XorLabel" figure="XorLabelFigure" elementIcon="false"/>
+  <labels name="StartLabel" figure="StartFigure" elementIcon="false" accessor="//@figures.0/@descriptors.16/@accessors.0"/>
+  <labels name="EndLabel" figure="EndFigure" elementIcon="false" accessor="//@figures.0/@descriptors.17/@accessors.0"/>
+  <labels name="RelationLabel" figure="RelationLabelFigure" elementIcon="false"/>
+</gmfgraph:Canvas>

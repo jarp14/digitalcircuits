@@ -1,0 +1,7 @@
+# Tracing options for the org.chico.digitalcircuits.diagram plug-in
+
+# Common issues
+org.chico.digitalcircuits.diagram/debug=false
+
+# Visual IDs
+org.chico.digitalcircuits.diagram/debug/visualID=false
